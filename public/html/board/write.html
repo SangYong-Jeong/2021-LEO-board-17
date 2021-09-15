@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Express 게시판 - 게시글 등록 </title>
+	<link rel="stylesheet" href="../../css//material-icon.css">
+	<link rel="stylesheet" href="../../css/all.min.css">
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/base.css">  
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/board/write.css">
+	<script src="../../js/jquery.min.js"></script>
+	<script src="../../js/moment.min.js"></script>
+	<script src="../../js/lodash.min.js"></script>
+	<script src="../../js/util.js"></script>
+</head>
+<body> 
+	<header class="header-wrapper">
+		<h1 class="logo"><a href="./list.html">노드 게시판</a></h1>
+		<nav class="navi-wrap">
+			<a href="./write.html" class="navi">게시글 등록</a>
+			<a href="./list.html" class="navi">게시글 리스트</a>
+		</nav>
+		<nav class="lang-wrap">
+			<a href="./list.html" class="navi active">한국어</a>
+			<span> | </span>
+			<a href="./list.html" class="navi ">영어</a>
+		</nav>
+	</header>
+	<section class="title-wrapper">
+		<div class="wrapper">
+			<h2 class="title-wrap">게시글 신규 등록</h2>
+			<p class="desc-wrap">노드 게시판 게시글 등록페이지 입니다.</p>
+			<div class="btn-wrap">
+				<a href="./write.html" class="btn btn-primary">등록</a>
+			</div>
+		</div>
+	</section> 
+	<section class="write-wrapper wrapper">
+		<h3 class="title-bar">
+			<span class="bullet"></span> 게시글 신규 등록
+		</h3>
+		<form action="#" name="" method="POST">
+			<table class="write-tbl">
+				<tbody>
+					<tr>
+						<td class="title require">제목</td>
+						<td class="content"><input type="text" name="" class="form-control" placeholder="제목"></td>
+					</tr>
+					<tr>
+						<td class="title">작성자</td>
+						<td class="content"><input type="text" name="" class="form-control" placeholder="작성자"></td>
+					</tr>
+					<tr>
+						<td class="title">내용</td>
+						<td class="content"><textarea name="" class="form-control" placeholder="내용"></textarea></td>
+					</tr>
+					<tr>
+						<td class="title">첨부파일</td>
+						<td class="content">
+							<input type="file" name="" class="form-control-file">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="btn-wrap p-3 text-center">
+				<button class="btn btn-success">등록</button>
+				<button class="btn btn-danger" type="reset">다시 등록</button>
+			</div>
+		</form>
+	</section>
+</body>
+</html>
