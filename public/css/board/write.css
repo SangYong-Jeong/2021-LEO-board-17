@@ -1,11 +1,9 @@
 .write-wrapper {}
-
 .write-wrapper .write-tbl {width: 100%; border: 1px solid #ddd;}
 .write-wrapper .write-tbl td {padding: .75em; border-bottom: 1px solid #dfdfdf;}
-.write-wrapper .write-tbl td.title {width: 160px;} /*  */
-.write-wrapper .write-tbl textarea {height: 160px;}
+.write-wrapper .write-tbl td.title {width: 160px;}
 .write-wrapper .write-tbl td.require::after {display: inline-block; content: '*'; color: #f10; margin-left: .5em; font-size: 1.25em;}
-
+.write-wrapper .write-tbl textarea {height: 160px;}
 .write-wrapper .file-wrap {display: flex; align-items: flex-end; margin-bottom: .5em; padding-bottom: .5em; border-bottom: 1px dotted #ccc;}
 .write-wrapper .file-wrap .img {width: 80px; margin-right: .5em;}
 .write-wrapper .file-wrap .file {margin-right: .5em;}
