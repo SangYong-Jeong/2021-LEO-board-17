@@ -1,0 +1,35 @@
+{
+  "name": "17.board",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SangYong-Jeong/2021-LEO-board-17.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SangYong-Jeong/2021-LEO-board-17/issues"
+  },
+  "homepage": "https://github.com/SangYong-Jeong/2021-LEO-board-17#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "fs-extra": "^10.0.0",
+    "http-errors": "^1.8.0",
+    "lodash": "^4.17.21",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.1",
+    "multer": "^1.4.3",
+    "mysql2": "^2.3.0",
+    "numeral": "^2.0.6",
+    "uuid": "^8.3.2"
+  }
+}
