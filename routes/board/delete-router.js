@@ -11,6 +11,19 @@ router.delete('/:id', async (req, res, next) => {
 		sql = " UPDATE board SET status = '0', removeAt=? WHERE id= "+ req.params.id
 		values = [moment().format('YYYY-MM-DD HH:mm:ss')]
 		await pool.execute(sql, values)
+		sql = `
+			SELECT B.*, F.id AS fileId
+			FROM board B LEFT JOIN files F
+			ON B.id = F.fid AND F.status = '1'
+			WHERE B.id=?
+		`
+		values = [req.params.id]
+		const [[rs]] = await pool.execute(sql, values)
+		if(rs.fileId) {
+			sql = " UPDATE files SET status = '0', removeAt=? WHERE fid=  "+ req.params.id
+			values = [moment().format('YYYY-MM-DD HH:mm:ss')]
+			await pool.execute(sql, values)
+		}
 		res.redirect(`/${req.lang}/board/list`)
 	}
 	catch (err) {
