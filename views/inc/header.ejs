@@ -1,0 +1,21 @@
+<header class="header-wrapper">
+	<h1 class="logo"><a href="/<%= LANG %>/board/list"><%= GLOBAL.LOGO %></a></h1>
+	<nav class="navi-wrap">
+		<a href="/<%= LANG %>/board/form" class="navi"><%= GLOBAL.NAVI[0] %></a>
+		<a href="/<%= LANG %>/board/list" class="navi"><%= GLOBAL.NAVI[1] %></a>
+	</nav>
+	<nav class="lang-wrap">
+		<a href="/ko/board/list" class="navi <%= LANG === 'ko' ? 'active' : '' %>">한국어</a>
+		<span> | </span>
+		<a href="/en/board/list" class="navi <%= LANG === 'en' ? 'active' : '' %>">영어</a>
+	</nav>
+</header>
+<section class="title-wrapper">
+	<div class="wrapper">
+		<h2 class="title-wrap"><%= eval(PAGE + '.TITLE') %></h2>
+		<p class="desc-wrap"><%= eval(PAGE + '.DESC') %></p>
+		<div class="btn-wrap">
+			<a href="/<%= LANG %>/board/form" class="btn btn-primary"><%= BT.CREATE %></a>
+		</div>
+	</div>
+</section>

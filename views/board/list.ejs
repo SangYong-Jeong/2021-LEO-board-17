@@ -1,0 +1,29 @@
+<%- include('../inc/head.ejs') %>
+<%- include('../inc/header.ejs') %>
+<section class="list-wrapper wrapper">
+	<%- include('../inc/title-book.ejs') %>  
+	<table class="table table-hover table-primary table-striped text-center">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>조회수</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for(let post of posts) { %> 
+			<tr style="cursor: pointer;" data-id="<%= post.id %>" data-lang="<%= LANG %>"> 
+				<td><%= post.id %></td>
+				<td class="text-left"><%= post.title %></td>
+				<td><%= post.writer %></td>
+				<td><%= post.createAt %></td>
+				<td><%= post.viewCount %></td>
+			</tr>
+			<% } %> 
+		</tbody>
+	</table>
+	<%- include('../inc/pager.ejs') %>   
+</section>
+<%- include('../inc/foot.ejs') %> 

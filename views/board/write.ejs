@@ -1,0 +1,40 @@
+<%- include('../inc/head.ejs') %>
+<%- include('../inc/header.ejs') %>
+<section class="write-wrapper wrapper">
+	<%- include('../inc/title-book.ejs') %>  
+	<form action="/board" method="POST" name="saveForm">
+		<table class="write-tbl">
+			<tbody>
+				<tr>
+					<td class="title require"><%= FIELD.TITLE %></td>
+					<td class="content">
+						<input type="text" name="title" class="form-control" placeholder="<%= FIELD.TITLE %>">
+					</td>
+				</tr>
+				<tr>
+					<td class="title"><%= FIELD.WRITER %></td>
+					<td class="content">
+						<input type="text" name="writer" class="form-control" placeholder="<%= FIELD.WRITER %>">
+					</td>
+				</tr>
+				<tr>
+					<td class="title"><%= FIELD.CONTENT %></td>
+					<td class="content">
+						<textarea name="content" class="form-control" placeholder="<%= FIELD.CONTENT %>"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="title"><%= FIELD.UPFILE %></td>
+					<td class="content">
+						<input type="file" name="upfile" class="form-control-file">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="btn-wrap p-3 text-center">
+			<button class="btn btn-success"><%= BT.CREATE %></button>
+			<button class="btn btn-danger" type="reset"><%= BT.RESET %></button>
+		</div>
+	</form>
+</section>
+<%- include('../inc/foot.ejs') %> 
