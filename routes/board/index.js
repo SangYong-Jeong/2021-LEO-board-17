@@ -21,6 +21,7 @@ const formRouter = require('./form-router')
 const viewRouter = require('./view-router')
 const deleteRouter = require('./delete-router')
 const updateRouter = require('./update-router')
+const downloadRouter = require('./download-router')
 
 router.post('/', writeRouter)
 router.post('/:id', updateRouter)
@@ -28,5 +29,6 @@ router.use('/delete', deleteRouter)
 router.use('/form', formRouter)
 router.use('/list', listRouter)
 router.use('/view', viewRouter)
+router.use('/download', downloadRouter)
 
 module.exports = router

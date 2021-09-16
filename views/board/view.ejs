@@ -29,11 +29,11 @@
 				<td class="content">
 					<% if(isImg(post.save || '')) { %> 
 						<img src="<%= relPath(post.save) %>" alt="첨부파일" class="file-img">
-						<a href="#" class="my-2 d-block"><%= post.ori %></a>
+						<a href="/<%= LANG %>/board/download/<%= post.id %>" class="my-2 d-block"><%= post.ori %></a>
 					<% } else if(post.ori) { %>
-						<a href="#" class="my-2 d-block"><%= post.ori %></a>
+						<a href="/<%= LANG %>/board/download/<%= post.id %>" class="my-2 d-block"><%= post.ori %></a>
 					<% } else { %>
-						<div href="#" class="my-2 d-block">첨부파일이 존재하지 않습니다.</div>
+						<div class="my-2 d-block">첨부파일이 존재하지 않습니다.</div>
 					<% } %> 
 				</td>
 			</tr>
