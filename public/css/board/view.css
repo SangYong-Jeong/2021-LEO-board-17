@@ -4,3 +4,13 @@
 .view-wrapper .view-tbl .content-tr td:last-child {line-height: 1.25;}
 
 .view-wrapper .file-img {width: 120px;}
+
+.view-wrapper .comment-wrap  {margin: 2em 0;}
+.view-wrapper .comment-wrap .write-wp {display: flex; flex-wrap: nowrap;}
+.view-wrapper .comment-wrap .write-wp :nth-child(1) {width: 120px;}
+.view-wrapper .comment-wrap .write-wp :nth-child(2) {flex-grow: 1; margin: 0 .25em;}
+.view-wrapper .comment-wrap .write-wp :nth-child(3) {flex-shrink: 0;}
+
+.view-wrapper .comment-wrap .comment-tbl {font-size: .875em; color: #444; margin-top: 1.5em;}
+.view-wrapper .comment-wrap .comment-tbl td:nth-child(1) {width: 140px;}
+.view-wrapper .comment-wrap .comment-tbl td:nth-child(2) {width: 120px;}
