@@ -8,7 +8,7 @@ const { pool } = require('../../modules/mysql-init')
 router.get('/:id' , async (req, res, next) => {
 	let sql, values
 	try {
-		sql = " SELECT realName, saveName FROM files WHERE fid= " + req.params.id
+		sql = " SELECT realName, saveName FROM files WHERE status = '1' AND fid= " + req.params.id
 		const [[rs]] = await pool.execute(sql)
 		res.status(200).download(absPath(rs.saveName), rs.realName)
 	}

@@ -1,5 +1,5 @@
-if(document.querySelectorAll('.list-wrapper table tr'))
-document.querySelectorAll('.list-wrapper table tr').forEach(function(tr) {
+if(document.querySelectorAll('.list-wrapper table tbody tr'))
+document.querySelectorAll('.list-wrapper table tbody tr').forEach(function(tr) {
 	tr.addEventListener('click', goView)
 })
 

@@ -24,10 +24,16 @@ router.get('/:id', async (req, res, next) => {
 		`
 		values = [req.params.id]
 		const [[post]] = await pool.execute(sql, values)
+
+		sql = "SELECT writer, comment, createAt FROM comments WHERE fid=? ORDER BY id DESC" 
+		values = [req.params.id]
+		const [comments] = await pool.execute(sql, values)
+
+		comments.forEach(v=> v.createAt = moment(v.createAt).format('YY-MM-DD HH:mm:ss'))
 		post.createAt = moment(post.createAt).format('YYYY-MM-DD HH:mm:ss')
 		const css ='board/view'
 		const js ='board/view'
-		res.render('board/view', {css, js, post, isImg, relPath})
+		res.render('board/view', {css, js, post, comments, isImg, relPath})
 	}
 	catch (err) {
 		next(createError(err))

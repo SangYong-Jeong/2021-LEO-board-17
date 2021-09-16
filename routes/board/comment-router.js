@@ -7,6 +7,7 @@ const { pool } = require('../../modules/mysql-init')
 router.post('/:id', async (req, res, next) => {
 	let sql, values
 	try {
+		console.log(req.lang)
 		const {writer, comment} = req.body
 		if(writer.trim() && comment.trim() ) {
 			sql = " INSERT INTO comments SET writer=?, comment=?, fid=? "

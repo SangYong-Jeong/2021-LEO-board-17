@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 const uploader = require('../../middlewares/multer-mw')
 const createError = require('http-errors')
+const moment = require('moment')
 const { moveFile } = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
 
@@ -27,8 +28,11 @@ router.post('/:id', uploader.single('upfile'),async (req,res,next) => {
 				values = [req.params.id]
 				const [[rs]] = await pool.execute(sql, values)
 				if(rs.fileId) {
-					sql = " UPDATE files SET status = '0' WHERE id= " + rs.fileId
-					await pool.execute(sql)
+					const removeDate = moment().format('YYYY-MM-DD HH:mm:ss')
+					sql = " UPDATE files SET status = '0', removeAt=? WHERE id= " + rs.fileId
+					values = [removeDate]
+					await pool.execute(sql, values)
+					moveFile(rs.save)
 				}
 				sql = " INSERT INTO files SET fid=?, realName=?, saveName=?, mimetype=?, size=?  "
 				values = [req.params.id ,originalname, filename, mimetype, size]
