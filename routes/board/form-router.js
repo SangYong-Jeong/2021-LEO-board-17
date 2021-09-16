@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const router = express.Router()
 const createError = require('http-errors')
-const {relPath} = require('../../modules/util')
+const {relPath, isImg} = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
 
 router.get('/', (req, res, next) => {
@@ -27,7 +27,7 @@ router.get('/:id', async (req,res,next) => {
 		const [[post]] = await pool.execute(sql, values)
 		const css = 'board/update'
 		const js = 'board/update'
-		res.render('board/update', {css, js, post, relPath})
+		res.render('board/update', {css, js, post, relPath, isImg})
 	}
 	catch (err) {
 		next(createError(err))

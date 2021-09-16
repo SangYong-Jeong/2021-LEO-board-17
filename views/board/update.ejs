@@ -1,5 +1,7 @@
 <%- include('../inc/head.ejs') %>
 <%- include('../inc/header.ejs') %>
+<script src="/js/promise.polyfill.min.js"></script>
+<script src="/js/axios.min.js"></script>
 <section class="update-wrapper wrapper">
 	<%- include('../inc/title-book.ejs') %>  
 	<form action="/<%= LANG %>/board/<%= post.id %>" method="POST" name="updateForm" enctype="multipart/form-data">
@@ -26,11 +28,16 @@
 				<tr>
 					<td class="title"><%= FIELD.UPFILE %></td>
 					<td class="content">
-						<% if(post.ori) { %> 
+						<% if(isImg(post.save || '')) { %> 
 						<div class="file-wrap">
 							<img src="<%= relPath(post.save) %>" alt="<%= post.ori %>" class="img">
 							<div class="file"><%= post.ori%></div>
-							<button type="button" class="btn btn-sm btn-danger"><%= BT.DELETE %></button> 
+							<button type="button" id="btRemoveUpfile" class="btn btn-sm btn-danger" data-msg="<%= MSG.DELETE %>" data-id="<%= post.id %>"><%= BT.DELETE %></button> 
+						</div>
+						<% } else if(post.save) { %>
+						<div class="file-wrap">
+							<div class="file"><%= post.ori%></div>
+							<button type="button" id="btRemoveUpfile" class="btn btn-sm btn-danger" data-msg="<%= MSG.DELETE %>" data-id="<%= post.id %>"><%= BT.DELETE %></button> 
 						</div>
 						<% } %> 
 						<input type="file" name="upfile" class="form-control-file">

@@ -28,11 +28,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'storages')))
 /*************** router init **************/
 const langMW = require('./middlewares/lang-mw')
 const boardRouter = require('./routes/board')
+const apiBoardRouter = require('./routes/api/board')
 
 app.use(langMW)
-
 app.use('/board', boardRouter)
-
+app.use('/board/api', apiBoardRouter)
 
 /**************** error init **************/
 const _404Router = require('./routes/error/404-router')
