@@ -4,7 +4,7 @@ const port = process.env.PORT
 const path = require('path')
 const express = require('express')
 const app = express()
-
+const methodOverride = require('./modules/method-init')
 
 /*************** server init **************/
 require('./modules/server-init')(app, process.env.PORT)
@@ -19,11 +19,11 @@ app.locals.pretty = true
 /*************** middleware ***************/
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-
+app.use(methodOverride())
 
 /*************** static init **************/
 app.use('/', express.static(path.join(__dirname, 'public')))
-
+app.use('/uploads', express.static(path.join(__dirname, 'storages')))
 
 /*************** router init **************/
 const langMW = require('./middlewares/lang-mw')

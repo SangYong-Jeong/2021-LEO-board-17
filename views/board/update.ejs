@@ -2,35 +2,37 @@
 <%- include('../inc/header.ejs') %>
 <section class="update-wrapper wrapper">
 	<%- include('../inc/title-book.ejs') %>  
-	<form action="/board" method="POST" name="updateForm">
+	<form action="/<%= LANG %>/board/<%= post.id %>" method="POST" name="updateForm" enctype="multipart/form-data">
 		<table class="update-tbl">
 			<tbody>
 				<tr>
 					<td class="title require"><%= FIELD.TITLE %></td>
 					<td class="content">
-						<input type="text" name="title" class="form-control" placeholder="<%= FIELD.TITLE %>">
+						<input type="text" name="title" class="form-control" placeholder="<%= FIELD.TITLE %>" value="<%= post.title %>" autofocus>
 					</td>
 				</tr>
 				<tr>
 					<td class="title"><%= FIELD.WRITER %></td>
 					<td class="content">
-						<input type="text" name="writer" class="form-control" placeholder="<%= FIELD.WRITER %>">
+						<input type="text" name="writer" class="form-control" placeholder="<%= FIELD.WRITER %>" value="<%= post.writer %>">
 					</td>
 				</tr>
 				<tr>
 					<td class="title"><%= FIELD.CONTENT %></td>
 					<td class="content">
-						<textarea name="content" class="form-control" placeholder="<%= FIELD.CONTENT %>"></textarea>
+						<textarea name="content" class="form-control" placeholder="<%= FIELD.CONTENT %>"><%= post.content %></textarea>
 					</td>
 				</tr>
 				<tr>
 					<td class="title"><%= FIELD.UPFILE %></td>
 					<td class="content">
+						<% if(post.ori) { %> 
 						<div class="file-wrap">
-							<img src="https://via.placeholder.com/120x160" alt="그림" class="img">
-							<div class="file">첨부파일.jpg</div>
-							<button type="button" class="btn btn-sm btn-danger"><%= BT.DELETE %></button>
+							<img src="<%= relPath(post.save) %>" alt="<%= post.ori %>" class="img">
+							<div class="file"><%= post.ori%></div>
+							<button type="button" class="btn btn-sm btn-danger"><%= BT.DELETE %></button> 
 						</div>
+						<% } %> 
 						<input type="file" name="upfile" class="form-control-file">
 					</td>
 				</tr>

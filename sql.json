@@ -1,0 +1,33 @@
+{
+	"fieldCount": 0,
+	"affectedRows": 1,
+	"insertId": 15,
+	"info": "",
+	"serverStatus": 2,
+	"warningStatus": 0,
+
+
+
+	"fieldname": "upfile",
+	"originalname": "f4.jpg",
+	"encoding": "7bit",
+	"mimetype": "image/jpeg",
+	"destination": "C:\\Users\\mmadu\\Documents\\정상용_수업\\17.board\\storages\\210916",
+	"filename": "210916_8a7cefe4-0d50-40e9-8024-8d0925dd44cc.jpg",
+	"path": "C:\\Users\\mmadu\\Documents\\정상용_수업\\17.board\\storages\\210916\\210916_8a7cefe4-0d50-40e9-8024-8d0925dd44cc.jpg",
+	"size": 23245,
+
+
+
+
+	"id": 17,
+	"title": "안녕하세요 파일ㅇ미",
+	"writer": "하이요",
+	"content": "반갑습니다 파일ㅇ",
+	"createAt": "2021-09-16T06:32:02.000Z",
+	"removeAt": null,
+	"viewCount": 7,
+	"status": "1",
+	"ori": "f2.jpg",
+	"save": "210916_84dfc1f3-bac1-4429-8639-624be74fed0f.jpg"
+}
