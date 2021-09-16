@@ -47,12 +47,12 @@
 	<form action="/board/delete/<%= post.id %>" method="POST" name="deleteForm">
 		<input type="hidden" name="_method" value="DELETE">
 	</form>
-	<!-- <div class="comment-wrap">
-		<form action="#">
+	<div class="comment-wrap">
+		<form action="/board/comment/<%= post.id %>" name="commentForm" method="POST">
 			<div class="write-wp">
-				<input type="text" class="form-control" placeholder="작성자">
-				<input type="text" class="form-control" placeholder="한줄 코멘트">
-				<button class="btn btn-primary">댓글등록</button>
+				<input type="text" name="writer" class="form-control" placeholder="<%= COMMENT.WRITER %>">
+				<input type="text" name="comment" class="form-control" placeholder="<%= COMMENT.COMMENT %>">
+				<button class="btn btn-primary"><%= BT.POST_COMMENT %></button>
 			</div>
 			<table class="table table-striped comment-tbl">
 				<tbody>
@@ -69,6 +69,6 @@
 				</tbody>
 			</table>
 		</form>
-	</div> -->
+	</div>
 </section>
 <%- include('../inc/foot.ejs') %> 

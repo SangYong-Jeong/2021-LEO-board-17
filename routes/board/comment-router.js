@@ -1,11 +1,11 @@
 const path = require('path')
 const express = require('express')
 const router = express.Router()
-const { error } = require('../../modules/util')
+const createError = require('http-errors')
 const { pool } = require('../../modules/mysql-init')
 
-router.use((req, res, next) => {
-
+router.post('/:id', (req, res, next) => {
+	res.send('hi')
 })
 
 module.exports = router

@@ -42,9 +42,14 @@ module.exports = _lang => {
 					DELETE	: '삭제',
 					LIST	: '리스트',
 					RESET	: '다시 등록',
+					POST_COMMENT : '댓글 등록'
 				},
 				MSG : {
 					DELETE : '정말로 삭제하시겠습니까?'
+				},
+				COMMENT : {
+					WRITER : '작성자',
+					COMMENT: '한줄 코멘트',
 				}
 			}
 		case 'EN':
@@ -88,9 +93,14 @@ module.exports = _lang => {
 					DELETE	: 'DELETE',
 					LIST	: 'LIST',
 					RESET	: 'RESET',
+					POST_COMMENT : 'POST COMMENT'
 				},
 				MSG : {
 					DELETE : 'Are you sure you want to delete it?'
+				},
+				COMMENT : {
+					WRITER : 'Writer',
+					COMMENT: 'Short Comment',
 				}
 			}
 	}
