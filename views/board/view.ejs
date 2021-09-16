@@ -1,5 +1,7 @@
 <%- include('../inc/head.ejs') %>
 <%- include('../inc/header.ejs') %>
+<script src="/js/promise.polyfill.min.js"></script>
+<script src="/js/axios.min.js"></script>
 <section class="view-wrapper wrapper">
 	<%- include('../inc/title-book.ejs') %> 
 	<table class="view-tbl">
@@ -61,6 +63,7 @@
 						<td class="datetime"><%= comment.createAt %></td>
 						<td class="writer"><%= comment.writer %></td>
 						<td class="comment"><%= comment.comment %></td>
+						<td><button id="btCommentRemove" data-commentid="<%= comment.id %>" data-msg="<%= MSG.DELETE %>" class="btn btn-danger" type="button"><i class="fa fa-times"></i></button></td>
 					</tr>
 					<% } %> 
 				</tbody>

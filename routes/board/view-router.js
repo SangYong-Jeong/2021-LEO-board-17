@@ -25,7 +25,7 @@ router.get('/:id', async (req, res, next) => {
 		values = [req.params.id]
 		const [[post]] = await pool.execute(sql, values)
 
-		sql = "SELECT writer, comment, createAt FROM comments WHERE fid=? ORDER BY id DESC" 
+		sql = "SELECT id, writer, comment, createAt FROM comments WHERE status = '1' AND fid=? ORDER BY id DESC" 
 		values = [req.params.id]
 		const [comments] = await pool.execute(sql, values)
 
