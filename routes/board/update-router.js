@@ -13,8 +13,8 @@ router.post('/:id', uploader.single('upfile'),async (req,res,next) => {
 		const {title, writer, content} = req.body
 		if(title.trim() && writer.trim()) {
 			// 내용 업뎃
-			sql = " UPDATE board SET title =?, writer=?, content=? WHERE id=" + req.params.id
-			values = [title, writer, content]
+			sql = " UPDATE board SET title =?, writer=?, content=?, updateAt=? WHERE id=" + req.params.id
+			values = [title, writer, content, moment().format('YYYY-MM-DD HH:mm:ss')]
 			await pool.execute(sql, values)
 			// 파일 업데이트
 			if(req.file) {

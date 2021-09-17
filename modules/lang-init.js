@@ -45,7 +45,8 @@ module.exports = _lang => {
 					POST_COMMENT : '댓글 등록'
 				},
 				MSG : {
-					DELETE : '정말로 삭제하시겠습니까?'
+					DELETE : '정말로 삭제하시겠습니까?',
+					UPDATE : '정말로 댓글을 수정하시겠습니까?'
 				},
 				COMMENT : {
 					WRITER : '작성자',
@@ -100,7 +101,8 @@ module.exports = _lang => {
 					POST_COMMENT : 'POST COMMENT'
 				},
 				MSG : {
-					DELETE : 'Are you sure you want to delete it?'
+					DELETE : 'Are you sure you want to delete it?',
+					UPDATE : 'Are you sure you want to edit your comment?'
 				},
 				COMMENT : {
 					WRITER : 'Writer',

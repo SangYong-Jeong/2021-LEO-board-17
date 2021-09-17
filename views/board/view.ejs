@@ -64,12 +64,18 @@
 						<td class="datetime"><%= comment.createAt %></td>
 						<td class="writer"><%= comment.writer %></td>
 						<td class="comment"><%= comment.comment %></td>
+						<td><button  id="btCommentUpdate" data-commentid="<%= comment.id %>" data-msg="<%= MSG.UPDATE %>" data-update="update" class="btn btn-success" type="button"><%= BT.UPDATE %></button></td>
 						<td><button id="btCommentRemove" data-commentid="<%= comment.id %>" data-msg="<%= MSG.DELETE %>" class="btn btn-danger" type="button"><i class="fa fa-times"></i></button></td>
 					</tr>
 					<% } %> 
 				</tbody>
 			</table>
-			<%- include('../inc/pager.ejs') %> 
+			<%- include('../inc/pager.ejs') %>
+			<div class="update-wp">
+				<input type="text" name="updateWriter" class="form-control" placeholder="<%= COMMENT.WRITER %>">
+				<input type="text" name="updateComment" class="form-control" placeholder="<%= COMMENT.COMMENT %>">
+				<button class="btn btn-primary"><%= BT.POST_COMMENT %></button>
+			</div>
 		</form>
 	</div>
 </section>

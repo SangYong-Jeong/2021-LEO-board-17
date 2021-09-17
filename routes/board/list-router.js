@@ -22,9 +22,14 @@ router.get(['/', '/:page'], async (req, res, next) => {
 		posts.forEach(v=>{
 			v.createAt = moment(v.createAt).format('YYYY-MM-DD HH:mm:ss')
 		})
+
+		var number = totalRecord
+		for(var i = 1; i <= page; i++) {
+			if(i !== 1) number = number - pager.listCnt
+		}
 		const css = 'board/list'
 		const js = 'board/list'
-		res.render('board/list', {css, js, posts, pager})
+		res.render('board/list', {css, js, posts, pager, number})
 	} catch (err) {
 		next(createError(err))
 	}

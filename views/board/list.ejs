@@ -15,13 +15,13 @@
 		<tbody>
 			<% for(let post of posts) { %> 
 			<tr style="cursor: pointer;" data-id="<%= post.id %>" data-lang="<%= LANG %>"> 
-				<td><%= post.id %></td>
+				<td><%= number %></td>
 				<td class="text-left"><%= post.title %></td>
 				<td><%= post.writer %></td>
 				<td><%= post.createAt %></td>
 				<td><%= post.viewCount %></td>
 			</tr>
-			<% } %> 
+			<% number-- } %> 
 		</tbody>
 	</table>
 	<%- include('../inc/pager.ejs') %>   

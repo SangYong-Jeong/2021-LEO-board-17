@@ -14,5 +14,7 @@
 .view-wrapper .comment-wrap .comment-tbl {font-size: .875em; color: #444; margin-top: 1.5em;}
 .view-wrapper .comment-wrap .comment-tbl td:nth-child(1) {width: 140px;}
 .view-wrapper .comment-wrap .comment-tbl td:nth-child(2) {width: 120px;}
-.view-wrapper .comment-wrap .comment-tbl td:nth-child(4) {width: 20px;}
+.view-wrapper .comment-wrap .comment-tbl td:nth-child(4) {width: 80px;}
 .view-wrapper .comment-wrap .comment-tbl td:nth-child(4) button {height: 25px; font-size: 1em; display: flex; align-items: center; justify-content: center;}
+.view-wrapper .comment-wrap .comment-tbl td:nth-child(5) {width: 20px;}
+.view-wrapper .comment-wrap .comment-tbl td:nth-child(5) button {height: 25px; font-size: 1em; display: flex; align-items: center; justify-content: center;}
