@@ -35,7 +35,7 @@
 					<% } else if(post.ori) { %>
 						<a href="/<%= LANG %>/board/download/<%= post.id %>" class="my-2 d-block"><%= post.ori %></a>
 					<% } else { %>
-						<div class="my-2 d-block">첨부파일이 존재하지 않습니다.</div>
+						<div class="my-2 d-block"><%= VIEW.NO_FILE %></div>
 					<% } %> 
 				</td>
 			</tr>
@@ -50,8 +50,7 @@
 		<input type="hidden" name="_method" value="DELETE">
 	</form>
 	<div class="comment-wrap">
-		<form action="/<%= LANG %>/board/comment/<%= post.id %>" data-validation="<%= VALIDATION.COMMENT %>" name="commentForm" method="POST">
-			<!-- <input type="hidden" name="page" value="<%= pager.page %>"> -->
+		<form action="/<%= LANG %>/board/comment/<%= post.id %>" data-validation="<%= VALIDATION.COMMENT %>"  name="commentForm" method="POST">
 			<div class="write-wp">
 				<input type="text" name="writer" class="form-control" placeholder="<%= COMMENT.WRITER %>">
 				<input type="text" name="comment" class="form-control" placeholder="<%= COMMENT.COMMENT %>">
@@ -71,10 +70,13 @@
 				</tbody>
 			</table>
 			<%- include('../inc/pager.ejs') %>
-			<div class="update-wp">
-				<input type="text" name="updateWriter" class="form-control" placeholder="<%= COMMENT.WRITER %>">
-				<input type="text" name="updateComment" class="form-control" placeholder="<%= COMMENT.COMMENT %>">
-				<button class="btn btn-primary"><%= BT.POST_COMMENT %></button>
+			<div class="comment-update-wrap" style="display: none;">
+				<h2 class="update-title"><span><%= COMMENT.UPDATE %></spa></h2>
+				<div class="update-wp">
+					<input type="text" name="updateWriter" class="form-control" placeholder="<%= COMMENT.WRITER %>">
+					<input type="text" name="updateComment" class="form-control" placeholder="<%= COMMENT.COMMENT %>">
+					<button class="btUpdateComment btn btn-dark" data-msg="<%= MSG.DELETE %>"><%= BT.POST_COMMENT %></button>
+				</div>
 			</div>
 		</form>
 	</div>

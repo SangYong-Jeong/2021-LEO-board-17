@@ -7,7 +7,6 @@ const { pool } = require('../../modules/mysql-init')
 router.post('/:id', async (req, res, next) => {
 	let sql, values
 	try {
-		console.log(req.lang)
 		const {writer, comment} = req.body
 		if(writer.trim() && comment.trim() ) {
 			sql = " INSERT INTO comments SET writer=?, comment=?, fid=? "
@@ -23,5 +22,20 @@ router.post('/:id', async (req, res, next) => {
 		next(createError(err))
 	}
 })
+
+router.put('/:id', async (req, res, next) => {
+	let sql, values
+	try {
+		const {updateWriter, updateComment} = req.body
+		sql = " INSERT INTO comments SET fid=?, writer=?, comment=?  "
+		values = [req.params.id, updateWriter, updateComment]
+		await pool.execute(sql, values)
+		res.redirect(`/${req.lang}/board/view/${req.params.id}/1`)
+	}
+	catch (err) {
+		next(createError(err))
+	}
+})
+
 
 module.exports = router

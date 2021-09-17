@@ -6,35 +6,21 @@ document.commentForm.addEventListener('submit', onValidation)
 
 if(document.querySelectorAll('#btCommentRemove').length > 0) {
 	document.querySelectorAll('#btCommentRemove').forEach(function(comment) {
-		comment.addEventListener('click', commentDelete)
+		comment.addEventListener('click', commentUpdateDelete)
 	})
 }
 
 if(document.querySelectorAll('#btCommentUpdate').length > 0) {
 	document.querySelectorAll('#btCommentUpdate').forEach(function(comment) {
-		comment.addEventListener('click', commentUpdate)
+		comment.addEventListener('click', commentUpdateDelete)
 	})
 }
 
-
-function commentUpdate(e) {
-	var id = this.dataset['commentid']
-	var updateBts = $('#btCommentUpdate')
-	if(confirm(this.dataset['msg'])) {
-		axios.delete('/board/api/comment/'+id + (update ? `/${update}` : '')).then(onSuccess).catch(onError)
-		function onSuccess(r) {
-			console.log(r)
-		}
-		function onError(err) {
-			console.log(err)
-		}
-	}
-}
-
-function commentDelete (e) {
+function commentUpdateDelete (e) {
 	var id = this.dataset['commentid']
 	var update = this.dataset['update'] || false
-	var updateBts = $('#btCommentUpdate')
+	var commentUpdateWrap = $('.comment-update-wrap')
+	var commentUpdateWrapPrev = $('.comment-update-wrap').prevAll()
 	var parent = $(this).parents('.comment-tr') // 지울려는 댓글의 tr
 	if(confirm(this.dataset['msg'])) {
 		axios.delete('/board/api/comment/'+id + (update ? `/${update}` : '') ).then(onSuccess).catch(onError)
@@ -44,10 +30,11 @@ function commentDelete (e) {
 			parent.remove()
 		}
 		else {
-			updateBts.remove()
+			commentUpdateWrapPrev.remove()
+			commentUpdateWrap.css('display', 'block')
+			$(document.commentForm).prepend('<input type="hidden" name="_method" value="PUT">')
 		}
 	}
-
 	function onError(err) {
 		console.log(err.response)
 	}
@@ -71,7 +58,9 @@ function onRemove (e) {
 function onValidation (e) {
 	e.preventDefault()
 	var validationMessage = this.dataset['validation']
-	if(this.writer.value.trim() && this.comment.value.trim()) {
+	var writer = this.writer || this.updateWriter
+	var comment = this.comment || this.updateComment
+	if(writer.value.trim() && comment.value.trim()) {
 		this.submit()
 	}
 	else {

@@ -28,18 +28,18 @@
   - updateAt board에만 추가 나중에 comment table에도 추가
   - 수정완료 - > 과거 게시글에는 적용 안됨 싹 지우고 다시 하면 될듯
 
-6. comment 수정기능 추가하면 괜찮을듯
+6. comment 수정기능 추가하면 괜찮을듯( 수정 되는 거 완료)
   - 수정 버튼 누르고 누르면은 api 통해서 해당 부분에 form input 집어 넣고 짜면 될듯
-  - html test 해봐야 할듯(안 됨)
-  - 모든 수정 버튼에 click시 아래의 event를 준다.
-  - 수정 버튼 누르면 댓글 등록 부분 사라지고 pager 부분 아래에 수정 input이 생긴다.
-  - 수정 버튼 누를 시 수정 버튼을 없애는 것도 괜찮을 듯
+  - 모든 수정 버튼 click시 아래의 delete button 과 동일한 event를 준다. 
+  - pager 아래에 있는 input의 css를 주자.
+  - 수정의 경우에도 DB에 있는 해당 댓글 data의 statuts를 0으로 바꿔주고 댓글 작성 부분, 댓글 리스트 테이블, 부분을 지워버리고 수정부분만 추가하자 (완료)
+  - 수정부분 input을 put으로 보낸다. (put으로 보내는 거 까지 완료!) 이제 수정할 부분 해주고 redirect로 쏴주면 된다. 
+  - redirect로 viewpage 보이게 한다. 
+  - comments table에 updateAt 추가하고 updateAt comment put router 에서 수정하기
 
-view.js 에서 합치고 view.ejs 수정하고 comment-api 수정해야할듯
-수정부분 추가적으로 수정필요
+
 
 7. file upload 하는 기능 추가하면 좋을 듯 
   - 이 경우 테이블 하나 추가적으로 만들어서 처리하면 좋을듯
 
-
-7. version upgrade 다 되면 pug version으로 한 번 짜보기
+8. version upgrade 다 되면 pug version으로 한 번 짜보기

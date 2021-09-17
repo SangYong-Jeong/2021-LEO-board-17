@@ -17,7 +17,8 @@ module.exports = _lang => {
 				},
 				VIEW : {
 					TITLE : '게시글 상세 보기',
-					DESC	: '노드 게시판 게시글 상세 보기입니다.'
+					DESC	: '노드 게시판 게시글 상세 보기입니다.',
+					NO_FILE : '첨부파일이 존재하지 않습니다.'
 				},
 				CREATE : {
 					TITLE : '게시글 신규 등록',
@@ -51,6 +52,7 @@ module.exports = _lang => {
 				COMMENT : {
 					WRITER : '작성자',
 					COMMENT: '한줄 코멘트',
+					UPDATE : '댓글 수정'
 				},
 				VALIDATION : {
 					WRITE : '게시글의 제목과 작성자를 입력해주세요.',
@@ -73,7 +75,8 @@ module.exports = _lang => {
 				},
 				VIEW : {
 					TITLE : 'View post details',
-					DESC	: 'This is a detailed view of the Node bulletin board post.'
+					DESC	: 'This is a detailed view of the Node bulletin board post.',
+					NO_FILE : 'The attachment does not exist.'
 				},
 				CREATE : {
 					TITLE : 'New post',
@@ -107,6 +110,7 @@ module.exports = _lang => {
 				COMMENT : {
 					WRITER : 'Writer',
 					COMMENT: 'Short Comment',
+					UPDATE : 'Update Comment'
 				},
 				VALIDATION : {
 					WRITE : 'Please enter the title and author of the post.',

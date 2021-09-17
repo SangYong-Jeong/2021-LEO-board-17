@@ -18,3 +18,10 @@
 .view-wrapper .comment-wrap .comment-tbl td:nth-child(4) button {height: 25px; font-size: 1em; display: flex; align-items: center; justify-content: center;}
 .view-wrapper .comment-wrap .comment-tbl td:nth-child(5) {width: 20px;}
 .view-wrapper .comment-wrap .comment-tbl td:nth-child(5) button {height: 25px; font-size: 1em; display: flex; align-items: center; justify-content: center;}
+
+.view-wrapper .comment-update-wrap h2.update-title {font-size: 1.25em; text-align: center; color: #333;}
+.view-wrapper .comment-update-wrap h2.update-title span {border: 2px dashed #39acda; padding: .25em 1em;}
+.view-wrapper .comment-wrap .update-wp {display: flex; flex-wrap: nowrap; margin: 2em 0;}
+.view-wrapper .comment-wrap .update-wp :nth-child(1) {width: 120px;}
+.view-wrapper .comment-wrap .update-wp :nth-child(2) {flex-grow: 1; margin: 0 .25em;}
+.view-wrapper .comment-wrap .update-wp :nth-child(3) {flex-shrink: 0;}

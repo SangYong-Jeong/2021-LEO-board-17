@@ -16,7 +16,7 @@ router.get(['/', '/:page'], async (req, res, next) => {
 		const page = Number(req.params.page) || 1
 		const pager = createPager(page, totalRecord, 5, 3)
 
-		sql = `SELECT * FROM board WHERE status > '0' ORDER BY id DESC LIMIT ?,?`
+		sql = `SELECT * FROM board WHERE status > '0' ORDER BY id DESC LIMIT ?,? `
 		values = [pager.startIdx.toString(), pager.listCnt.toString()]
 		const [posts] = await pool.execute(sql, values)
 		posts.forEach(v=>{

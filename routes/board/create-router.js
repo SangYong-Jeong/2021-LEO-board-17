@@ -20,7 +20,7 @@ router.post('/', uploader.single('upfile') ,async (req, res, next) => {
 				values = [rs.insertId, originalname, filename, mimetype, size]
 				await pool.execute(sql, values)
 			}
-			res.redirect(`/${req.lang}/board/list`)
+			// res.redirect(`/${req.lang}/board/list`)
 		}
 		else {
 			next(createError(400, req.app.locals.VALIDATION.WRITE))
