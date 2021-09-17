@@ -54,10 +54,9 @@
 
 
 8. 전부 다 하고 filename 수정해서 각 첨부파일마다 다른 파일이름을 써보자 (굳이 그래야할까?) 응 한 번 해보자 다하고나서
-  - 이 경우에는 우선 middleware에 있는 multer 수정하고나서 util에 있는 relPath, absPath, moveFile 수정해야한다. 나중에 해도 괜찮을 것 같다.
+  - 이 경우에는 우선 middleware에 있는 multer 수정하고나서 util에 있는 relPath, absPath, moveFile 수정해야한다. 나중에 해도 괜찮을 것 같다. (router 및 module 돌아다니면서 수정하면 될듯)
 
 The End -> ejs로 게시판 만들기 완성인것 같다.
 
-9.  version upgrade 다 되면 처음부터 pug version으로 한 번 짜보기
 
 ... 그 외 생각나는 부분 있으면 한 번 짜보자
