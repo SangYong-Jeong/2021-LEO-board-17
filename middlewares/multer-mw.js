@@ -10,9 +10,16 @@ const mega = 1024000
 
 const destination = async (req, file, cb) => {
 	try {
-		const folder = path.join(__dirname, '../', 'storages', moment().format('YYMMDD'))
-		await fs.ensureDir(folder)
-		cb(null, folder)
+		if(file.fieldname === 'upfile') {
+			const folder = path.join(__dirname, '../', 'storages-files1', moment().format('YYMMDD'))
+			await fs.ensureDir(folder)
+			cb(null, folder)
+		}
+		else {
+			const folder = path.join(__dirname, '../', 'storages-files2', moment().format('YYMMDD'))
+			await fs.ensureDir(folder)
+			cb(null, folder)
+		}
 	}
 	catch (err) {
 		cb(err)

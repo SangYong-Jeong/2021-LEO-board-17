@@ -23,7 +23,8 @@ app.use(methodOverride())
 
 /*************** static init **************/
 app.use('/', express.static(path.join(__dirname, 'public')))
-app.use('/uploads', express.static(path.join(__dirname, 'storages')))
+app.use('/uploads', express.static(path.join(__dirname, 'storages-files1')))
+app.use('/uploads2', express.static(path.join(__dirname, 'storages-files2')))
 
 /*************** router init **************/
 const langMW = require('./middlewares/lang-mw')

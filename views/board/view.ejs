@@ -31,9 +31,22 @@
 				<td class="content">
 					<% if(isImg(post.save || '')) { %> 
 						<img src="<%= relPath(post.save) %>" alt="첨부파일" class="file-img">
-						<a href="/<%= LANG %>/board/download/<%= post.id %>" class="my-2 d-block"><%= post.ori %></a>
+						<a href="/<%= LANG %>/board/download/<%= post.id %>/1" class="my-2 d-block"><%= post.ori %></a>
 					<% } else if(post.ori) { %>
-						<a href="/<%= LANG %>/board/download/<%= post.id %>" class="my-2 d-block"><%= post.ori %></a>
+						<a href="/<%= LANG %>/board/download/<%= post.id %>/1" class="my-2 d-block"><%= post.ori %></a>
+					<% } else { %>
+						<div class="my-2 d-block"><%= VIEW.NO_FILE %></div>
+					<% } %> 
+				</td>
+			</tr>
+			<tr>
+				<td class="title"><%= FIELD.UPFILE2 %></td>
+				<td class="content">
+					<% if(isImg(post.save2 || '')) { %> 
+						<img src="<%= relPath2(post.save2) %>" alt="첨부파일" class="file-img">
+						<a href="/<%= LANG %>/board/download/<%= post.id %>/2" class="my-2 d-block"><%= post.ori2 %></a>
+					<% } else if(post.ori2) { %>
+						<a href="/<%= LANG %>/board/download/<%= post.id %>/2" class="my-2 d-block"><%= post.ori2 %></a>
 					<% } else { %>
 						<div class="my-2 d-block"><%= VIEW.NO_FILE %></div>
 					<% } %> 

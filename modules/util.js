@@ -26,11 +26,26 @@ const zipExt = ['zip', 'alz']
 const exts = {imgExt, mediaExt, docExt, zipExt}
 
 const relPath = file => `/uploads/${file.split('_')[0]}/${file}`
-const absPath = file => path.join(__dirname, `../storages/${file.split('_')[0]}/${file}`)
+const relPath2 = file => `/uploads2/${file.split('_')[0]}/${file}`
+const absPath = file => path.join(__dirname, `../storages-files1/${file.split('_')[0]}/${file}`)
+const absPath2 = file => path.join(__dirname, `../storages-files2/${file.split('_')[0]}/${file}`)
 const moveFile = async file => {
 	try{
-		let savePath = path.join(__dirname, '../storages-remove', file.split('_')[0])
+		let savePath = path.join(__dirname, '../storages-remove1', file.split('_')[0])
 		const oldPath = absPath(file)
+		await fs.ensureDir(savePath) // D:\ ~ /210909
+		savePath = path.join(savePath, file) // D:\ ~ /210909/210909_SADHFSAJKHF-SFJSHDFJ.jpg
+		await fs.move(oldPath, savePath)
+		return true
+	}
+	catch (err) {
+		return err
+	}
+}
+const moveFile2 = async file => {
+	try{
+		let savePath = path.join(__dirname, '../storages-remove2', file.split('_')[0])
+		const oldPath = absPath2(file)
 		await fs.ensureDir(savePath) // D:\ ~ /210909
 		savePath = path.join(savePath, file) // D:\ ~ /210909/210909_SADHFSAJKHF-SFJSHDFJ.jpg
 		await fs.move(oldPath, savePath)
@@ -62,5 +77,5 @@ const alert = (msg,location) => {
 
 const isImg = file => imgExt.includes(path.extname(file).substr(1)) ? true : false
 
-module.exports = {  location, cutTail, chgStatus, exts, relPath, absPath ,getIcon, isImg, moveFile, alert }
+module.exports = {  location, cutTail, chgStatus, exts, relPath, relPath2, absPath, absPath2, getIcon, isImg, moveFile, moveFile2, alert }
 

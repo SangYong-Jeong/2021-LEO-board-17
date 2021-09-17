@@ -39,12 +39,25 @@
 
 
 7. file upload 하는 기능 추가하면 좋을 듯 
-  - files2로 file 관련 테이블 하나 더 추가 -> files1과 동일하게 테이블 잡는다.
-  - files2에 데이터를 넣는 input관련 write, update, view ejs 추가 필요하다.
+  - files2로 file 관련 테이블 하나 더 추가 -> files1과 동일하게 테이블 잡는다. (완료)
+  - files2에 데이터를 넣는 input관련 write, view, update 순으로 수정 작업 시작
   - (설계)
-  - create-router 에서는 uploader.fields로 처리해 for문 이용해서 각 파일 데이터를 데이터베이스에 넣으면 될 것 같다.
-  - view-router 에서는 데이터를 불러올 때 LEFT JOIN이 한 번 더 들어가서 files2에 있는 데이터를 가져오면 될 것 같다.
+  - create-router 에서는 uploader.fields로 처리해 각 파일 데이터를 데이터베이스에 넣으면 될 것 같다. (multer에서 if문 써서 files의 파일은 storage-files1에 files2의 파일은 storage-files2에 집어 넣는다. 이 경우 삭제할 때, delete 이용하고 moveFile, relPath, absPath 수정좀 들어가야한다. ) - 데이터 집어넣는 부분 완료 , static 포함 다 수정 완료
+  - view-router 에서는 데이터를 불러올 때 LEFT JOIN이 한 번 더 들어가서 files2에 있는 데이터를 가져오면 될 것 같다. (완료)
+  - delete-router 에서 지울 때 어떻게 지울지 설계가 필요하다. (delete router 에서 지우는 거 (완료))
+  - download-router 수정해서 두 번째 첨부파일도 다운받을 수 있게 만들기 (완료)
+  - update.ejs 수정 완료
+  - file-api.js 수정 완료
   - update-router 에서는 내용 업데이트는 동일하게 진행하고 파일 업데이트에 if문이 한 번 더 들어가서 files2에 데이터 있는지 확인하고 지워주면 될 것 같다.
-  - (추가적으로 해보고 싶은게 storages1에는 files1의 데이터가 들어가게 하고 storages2에는 files2의 데이터가 들어가게 만드는것도 재미있을것 같다. multer를 통과할때 위에 있는 type="file " input부터 차례대로 미들웨어를 통과하게 되므로 디버거로 한 번 찍어본 후에 진행할 수 있을것 같다.)
+  - update-router validation 하기 (검증 완료)
+  - (추가적으로 해보고 싶은게 storages1에는 files1의 데이터가 들어가게 하고 storages2에는 files2의 데이터가 들어가게 만드는것도 재미있을것 같다. multer를 통과할때 위에 있는 type="file " input부터 차례대로 미들웨어를 통과하게 되므로 디버거로 한 번 찍어본 후에 진행할 수 있을것 같다.) - 이미 완성했다. 
 
-8. version upgrade 다 되면 처음부터 pug version으로 한 번 짜보기
+
+8. 전부 다 하고 filename 수정해서 각 첨부파일마다 다른 파일이름을 써보자 (굳이 그래야할까?) 응 한 번 해보자 다하고나서
+  - 이 경우에는 우선 middleware에 있는 multer 수정하고나서 util에 있는 relPath, absPath, moveFile 수정해야한다. 나중에 해도 괜찮을 것 같다.
+
+The End -> ejs로 게시판 만들기 완성인것 같다.
+
+9.  version upgrade 다 되면 처음부터 pug version으로 한 번 짜보기
+
+... 그 외 생각나는 부분 있으면 한 번 짜보자

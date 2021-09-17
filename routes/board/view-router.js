@@ -4,7 +4,7 @@ const router = express.Router()
 const moment = require('moment')
 const createError = require('http-errors')
 const createPager = require('../../modules/pager-init')
-const {isImg, relPath} = require('../../modules/util')
+const {isImg, relPath, relPath2} = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
 
 router.get(['/:id' , '/:id/:page'], async (req, res, next) => {
@@ -19,9 +19,11 @@ router.get(['/:id' , '/:id/:page'], async (req, res, next) => {
 		await pool.execute(sql, values)
 		// sql = " SELECT * FROM board WHERE status > '0' AND id= " + req.params.id
 		sql = `
-		SELECT B.*, F.realName AS ori, F.saveName AS save
+		SELECT B.*, F.realName AS ori, F.saveName AS save, F2.realName AS ori2, F2.saveName AS save2
 		FROM board B LEFT JOIN files F
 		ON B.id = F.fid AND F.status = '1'
+		LEFT JOIN files2 F2
+		ON B.id = F2.fid AND F2.status = '1'
 		WHERE B.status = '1' AND B.id = ? 
 		`
 		values = [req.params.id]
@@ -42,7 +44,7 @@ router.get(['/:id' , '/:id/:page'], async (req, res, next) => {
 		post.createAt = moment(post.createAt).format('YYYY-MM-DD HH:mm:ss')
 		const css ='board/view'
 		const js ='board/view'
-		res.render('board/view', {css, js, post, comments, pager, id, isImg, relPath})
+		res.render('board/view', {css, js, post, comments, pager, id, isImg, relPath, relPath2})
 	}
 	catch (err) {
 		next(createError(err))
