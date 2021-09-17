@@ -38,8 +38,13 @@
   - comments table에 updateAt 추가하고 updateAt comment put router 에서 수정하기
 
 
-
 7. file upload 하는 기능 추가하면 좋을 듯 
-  - 이 경우 테이블 하나 추가적으로 만들어서 처리하면 좋을듯
+  - files2로 file 관련 테이블 하나 더 추가 -> files1과 동일하게 테이블 잡는다.
+  - files2에 데이터를 넣는 input관련 write, update, view ejs 추가 필요하다.
+  - (설계)
+  - create-router 에서는 uploader.fields로 처리해 for문 이용해서 각 파일 데이터를 데이터베이스에 넣으면 될 것 같다.
+  - view-router 에서는 데이터를 불러올 때 LEFT JOIN이 한 번 더 들어가서 files2에 있는 데이터를 가져오면 될 것 같다.
+  - update-router 에서는 내용 업데이트는 동일하게 진행하고 파일 업데이트에 if문이 한 번 더 들어가서 files2에 데이터 있는지 확인하고 지워주면 될 것 같다.
+  - (추가적으로 해보고 싶은게 storages1에는 files1의 데이터가 들어가게 하고 storages2에는 files2의 데이터가 들어가게 만드는것도 재미있을것 같다. multer를 통과할때 위에 있는 type="file " input부터 차례대로 미들웨어를 통과하게 되므로 디버거로 한 번 찍어본 후에 진행할 수 있을것 같다.)
 
-8. version upgrade 다 되면 pug version으로 한 번 짜보기
+8. version upgrade 다 되면 처음부터 pug version으로 한 번 짜보기
