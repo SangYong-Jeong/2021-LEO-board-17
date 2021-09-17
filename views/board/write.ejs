@@ -2,7 +2,7 @@
 <%- include('../inc/header.ejs') %>
 <section class="write-wrapper wrapper">
 	<%- include('../inc/title-book.ejs') %>  
-	<form action="/<%= LANG %>/board" method="POST" name="saveForm" enctype="multipart/form-data">
+	<form action="/<%= LANG %>/board" data-validation="<%= VALIDATION.WRITE %>"  class="saveForm" method="POST" name="saveForm" enctype="multipart/form-data">
 		<table class="write-tbl">
 			<tbody>
 				<tr>

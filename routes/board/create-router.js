@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const router = express.Router()
 const createError = require('http-errors')
+const {alert} = require('../../modules/util')
 const { pool } = require('../../modules/mysql-init')
 const uploader = require('../../middlewares/multer-mw')
 
@@ -22,7 +23,8 @@ router.post('/', uploader.single('upfile') ,async (req, res, next) => {
 			res.redirect(`/${req.lang}/board/list`)
 		}
 		else {
-			next(createError(400, '제목 또는 작성자를 입력해주세요.'))
+			next(createError(400, req.app.locals.VALIDATION.WRITE))
+			// res.send(alert(req.app.locals.VALIDATION.WRITE, '/board/form'))
 		}
 	}
 	catch(err) {

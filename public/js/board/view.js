@@ -1,6 +1,9 @@
 document.querySelector('#btList').addEventListener('click', goList)
 document.querySelector('#btUpdate').addEventListener('click', goUpdate)
 document.querySelector('#btRemove').addEventListener('click', onRemove)
+document.commentForm.addEventListener('submit', onValidation)
+
+
 if(document.querySelectorAll('#btCommentRemove').length > 0) {
 	document.querySelectorAll('#btCommentRemove').forEach(function(comment) {
 		comment.addEventListener('click', commentDelete)
@@ -9,8 +12,7 @@ if(document.querySelectorAll('#btCommentRemove').length > 0) {
 
 function commentDelete (e) {
 	var id = this.dataset['commentid']
-	console.log(id)
-	var parent = this.parentNode // comment-tbl td:nth-child(4)
+	var parent = $(this).parents('.comment-tr') // 지울려는 댓글의 tr
 	if(confirm(this.dataset['msg'])) {
 		axios.delete('/board/api/comment/'+id).then(onSuccess).catch(onError)
 	}
@@ -35,5 +37,16 @@ function goUpdate (e) {
 function onRemove (e) {
 	if(confirm(this.dataset['msg'])) {
 		document.deleteForm.submit()
+	}
+}
+
+function onValidation (e) {
+	e.preventDefault()
+	var validationMessage = this.dataset['validation']
+	if(this.writer.value.trim() && this.comment.value.trim()) {
+		this.submit()
+	}
+	else {
+		alert(validationMessage)
 	}
 }

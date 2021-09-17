@@ -4,5 +4,5 @@ document.querySelectorAll('.list-wrapper table tbody tr').forEach(function(tr) {
 })
 
 function goView (e) {
-	location.href = '/' + this.dataset['lang'] + '/board/view/' + this.dataset['id']
+	location.href = '/' + this.dataset['lang'] + '/board/view/' + this.dataset['id'] + '/1'
 }

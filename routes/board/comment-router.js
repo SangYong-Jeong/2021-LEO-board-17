@@ -13,7 +13,7 @@ router.post('/:id', async (req, res, next) => {
 			sql = " INSERT INTO comments SET writer=?, comment=?, fid=? "
 			values = [writer, comment, req.params.id]
 			await pool.execute(sql, values)
-			res.redirect(`/${req.lang}/board/view/${req.params.id}`)
+			res.redirect(`/${req.lang}/board/view/${req.params.id}/1`)
 		}
 		else {
 			next(createError(400, '작성자 또는 코멘트 내용을 입력해주세요'))

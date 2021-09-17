@@ -15,3 +15,16 @@ function onDelete(e) {
 		console.log(err.response)
 	}
 }
+
+document.updateForm.addEventListener('submit', onValidation)
+
+function onValidation (e) {
+	e.preventDefault()
+	var validationMessage = this.dataset['validation']
+	if(this.title.value.trim() && this.writer.value.trim()) {
+		this.submit()
+	}
+	else {
+		alert(validationMessage)
+	}
+}

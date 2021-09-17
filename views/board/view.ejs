@@ -50,7 +50,8 @@
 		<input type="hidden" name="_method" value="DELETE">
 	</form>
 	<div class="comment-wrap">
-		<form action="/<%= LANG %>/board/comment/<%= post.id %>" name="commentForm" method="POST">
+		<form action="/<%= LANG %>/board/comment/<%= post.id %>" data-validation="<%= VALIDATION.COMMENT %>" name="commentForm" method="POST">
+			<!-- <input type="hidden" name="page" value="<%= pager.page %>"> -->
 			<div class="write-wp">
 				<input type="text" name="writer" class="form-control" placeholder="<%= COMMENT.WRITER %>">
 				<input type="text" name="comment" class="form-control" placeholder="<%= COMMENT.COMMENT %>">
@@ -59,7 +60,7 @@
 			<table class="table table-striped comment-tbl">
 				<tbody>
 					<%for(let comment of comments) {  %> 
-					<tr>
+					<tr class="comment-tr">
 						<td class="datetime"><%= comment.createAt %></td>
 						<td class="writer"><%= comment.writer %></td>
 						<td class="comment"><%= comment.comment %></td>
@@ -68,6 +69,7 @@
 					<% } %> 
 				</tbody>
 			</table>
+			<%- include('../inc/pager.ejs') %> 
 		</form>
 	</div>
 </section>

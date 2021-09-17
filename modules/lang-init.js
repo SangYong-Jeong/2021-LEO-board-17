@@ -50,6 +50,10 @@ module.exports = _lang => {
 				COMMENT : {
 					WRITER : '작성자',
 					COMMENT: '한줄 코멘트',
+				},
+				VALIDATION : {
+					WRITE : '게시글의 제목과 작성자를 입력해주세요.',
+					COMMENT : '댓글의 작성자와 내용을 입력해주세요.'
 				}
 			}
 		case 'EN':
@@ -101,6 +105,10 @@ module.exports = _lang => {
 				COMMENT : {
 					WRITER : 'Writer',
 					COMMENT: 'Short Comment',
+				},
+				VALIDATION : {
+					WRITE : 'Please enter the title and author of the post.',
+					COMMENT : 'Please enter the author and content of the comment.'
 				}
 			}
 	}

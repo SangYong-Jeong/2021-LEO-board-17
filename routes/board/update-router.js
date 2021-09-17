@@ -16,7 +16,7 @@ router.post('/:id', uploader.single('upfile'),async (req,res,next) => {
 			sql = " UPDATE board SET title =?, writer=?, content=? WHERE id=" + req.params.id
 			values = [title, writer, content]
 			await pool.execute(sql, values)
-			// 파일 없데이트
+			// 파일 업데이트
 			if(req.file) {
 				const {originalname, filename, mimetype, size} = req.file
 				sql = `
@@ -44,7 +44,7 @@ router.post('/:id', uploader.single('upfile'),async (req,res,next) => {
 			}
 		}
 		else {
-			next(createError(400, '제목 또는 작성자를 입력해주세요.'))
+			next(createError(400, req.app.locals.VALIDATION.WRITE))
 		}
 	}
 	catch (err) {

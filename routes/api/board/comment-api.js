@@ -1,14 +1,15 @@
 const path = require('path')
 const express = require('express')
 const router = express.Router()
-const createError = require('../../../modules/util')
+const moment = require('moment')
 const { pool } = require('../../../modules/mysql-init')
 
 router.delete('/:id', async (req, res, next) => {
 	let sql, values
 	try {	
-		sql = " UPDATE comments SET status = '0' WHERE id= " + req.params.id
-		await pool.execute(sql)
+		sql = " UPDATE comments SET status = '0', removeAt=? WHERE id= " + req.params.id
+		values = [moment().format('YYYY-MM-DD HH:mm:ss')]
+		await pool.execute(sql, values)
 		res.status(200).json({code: 200, reult: 'OK'})
 	}
 	catch (err) {
